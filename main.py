@@ -11,14 +11,16 @@ Window.clearcolor = (1, 0.5, 0, 1)
 
 class MainApp(App):
     def build(self):
-        root = BoxLayout(orientation='vertical', spacing=0)
+        root = BoxLayout(orientation='vertical', spacing=7)   # Nastaveno spacing = okraje kolem butonů, obrázku dole
         
         # Horní lišta
-        top_bar = BoxLayout(size_hint_y=0.1, padding=5)
+        top_bar = BoxLayout(size_hint_y=0.1, padding=5)  # Nastaveno padding = okraje kolem butonů na horní liště
         
-        left_button = Button(text=".", size_hint_x=0.2)
+        # Změna tlačítka na ikonu ozubeného kolečka
+        left_button = Button(background_normal='settings6.png', size_hint_x=0.12, background_color=(1, 1, 1, 1))
+        
         center_label = Label(text="PNEUMATIKY", size_hint_x=0.6, color=(1,1,1,1), font_size='20sp') # Bílý text
-        right_button = Button(text=".", size_hint_x=0.2)
+        right_button = Button(text="X", size_hint_x=0.12, background_color=(0.5, 0.5, 0.5, 1))
         
         top_bar.add_widget(left_button)
         top_bar.add_widget(center_label)
@@ -27,7 +29,7 @@ class MainApp(App):
         root.add_widget(top_bar)
         
         # Obrázek
-        image_container = BoxLayout(size_hint_y=0.7, padding=0)  # Nastaveno padding=0
+        image_container = BoxLayout(size_hint_y=0.7, padding=0)  # Nastaveno padding=0 okraje
         with image_container.canvas.before:
             Rectangle(source='hlavni.jpeg', size=image_container.size, pos=image_container.pos)
         image_container.bind(size=self._update_rect, pos=self._update_rect)
@@ -36,15 +38,15 @@ class MainApp(App):
         # Dolní část s čtyřmi tlačítky
         if platform == 'android':
             # Rozložení pro Android: 2 tlačítka vedle sebe a další 2 pod nimi
-            bottom_buttons = BoxLayout(size_hint_y=0.5, orientation='vertical', spacing=5, padding=5)  # Změněno na 0.3
+            bottom_buttons = BoxLayout(size_hint_y=0.5, orientation='vertical', spacing=5, padding=0)  #spacing je mezera vodorovná mezi butony, 
             
-            top_row = BoxLayout(size_hint_y=0.5, spacing=5)    # Přidáno spacing=10 mezera mezi tlačitky dole
+            top_row = BoxLayout(size_hint_y=0.5, spacing=5)    # Přidáno spacing=5 mezera mezi tlačitky
             button1 = Button(text="Tlačítko 1", background_color=(0.5, 0.5, 0.5, 1))
             button2 = Button(text="Tlačítko 2", background_color=(0.5, 0.5, 0.5, 1))
             top_row.add_widget(button1)
             top_row.add_widget(button2)
             
-            bottom_row = BoxLayout(size_hint_y=0.5, spacing=5)  # Přidáno spacing=10 mezera mezi tlačitky dole
+            bottom_row = BoxLayout(size_hint_y=0.5, spacing=5)  # Přidáno spacing=5 mezera mezi tlačitky
             button3 = Button(text="Tlačítko 3", background_color=(0.5, 0.5, 0.5, 1))
             button4 = Button(text="Tlačítko 4", background_color=(0.5, 0.5, 0.5, 1))
             bottom_row.add_widget(button3)
@@ -59,8 +61,6 @@ class MainApp(App):
             button2 = Button(text="Tlačítko 2", background_color=(0.5, 0.5, 0.5, 1))
             button3 = Button(text="Tlačítko 3", background_color=(0.5, 0.5, 0.5, 1))
             button4 = Button(text="Tlačítko 4", background_color=(0.5, 0.5, 0.5, 1))
-
-
 
             bottom_buttons.add_widget(button1)
             bottom_buttons.add_widget(button2)
