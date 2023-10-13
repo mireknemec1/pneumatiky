@@ -11,7 +11,7 @@ Window.clearcolor = (1, 0.5, 0, 1)
 
 class MainApp(App):
     def build(self):
-        root = BoxLayout(orientation='vertical', spacing=10)
+        root = BoxLayout(orientation='vertical', spacing=0)
         
         # Horní lišta
         top_bar = BoxLayout(size_hint_y=0.1, padding=5)
@@ -36,17 +36,17 @@ class MainApp(App):
         # Dolní část s čtyřmi tlačítky
         if platform == 'android':
             # Rozložení pro Android: 2 tlačítka vedle sebe a další 2 pod nimi
-            bottom_buttons = BoxLayout(size_hint_y=0.5, orientation='vertical', spacing=10, padding=10)  # Změněno na 0.3
+            bottom_buttons = BoxLayout(size_hint_y=0.5, orientation='vertical', spacing=5, padding=5)  # Změněno na 0.3
             
-            top_row = BoxLayout(size_hint_y=0.5, spacing=10)    # Přidáno spacing=10 mezera mezi tlačitky dole
-            button1 = Button(text="Tlačítko 1")
-            button2 = Button(text="Tlačítko 2")
+            top_row = BoxLayout(size_hint_y=0.5, spacing=5)    # Přidáno spacing=10 mezera mezi tlačitky dole
+            button1 = Button(text="Tlačítko 1", background_color=(0.5, 0.5, 0.5, 1))
+            button2 = Button(text="Tlačítko 2", background_color=(0.5, 0.5, 0.5, 1))
             top_row.add_widget(button1)
             top_row.add_widget(button2)
             
-            bottom_row = BoxLayout(size_hint_y=0.5, spacing=10)  # Přidáno spacing=10 mezera mezi tlačitky dole
-            button3 = Button(text="Tlačítko 3")
-            button4 = Button(text="Tlačítko 4")
+            bottom_row = BoxLayout(size_hint_y=0.5, spacing=5)  # Přidáno spacing=10 mezera mezi tlačitky dole
+            button3 = Button(text="Tlačítko 3", background_color=(0.5, 0.5, 0.5, 1))
+            button4 = Button(text="Tlačítko 4", background_color=(0.5, 0.5, 0.5, 1))
             bottom_row.add_widget(button3)
             bottom_row.add_widget(button4)
             
@@ -55,10 +55,13 @@ class MainApp(App):
         else:
             # Rozložení pro ostatní platformy: všechna tlačítka vedle sebe
             bottom_buttons = BoxLayout(size_hint_y=0.2, spacing=10, padding=10)
-            button1 = Button(text="Tlačítko 1")
-            button2 = Button(text="Tlačítko 2")
-            button3 = Button(text="Tlačítko 3")
-            button4 = Button(text="Tlačítko 4")
+            button1 = Button(text="Tlačítko 1", background_color=(0.5, 0.5, 0.5, 1))
+            button2 = Button(text="Tlačítko 2", background_color=(0.5, 0.5, 0.5, 1))
+            button3 = Button(text="Tlačítko 3", background_color=(0.5, 0.5, 0.5, 1))
+            button4 = Button(text="Tlačítko 4", background_color=(0.5, 0.5, 0.5, 1))
+
+
+
             bottom_buttons.add_widget(button1)
             bottom_buttons.add_widget(button2)
             bottom_buttons.add_widget(button3)
