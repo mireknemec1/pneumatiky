@@ -6,7 +6,6 @@ from kivy.core.window import Window
 from kivy.graphics import Rectangle
 from kivy.utils import platform
 
-# Test nastaveni kod1 rikam
 # Nastavení oranžové barvy pozadí pro celé okno
 Window.clearcolor = (1, 0.5, 0, 1)
 
@@ -17,9 +16,9 @@ class MainApp(App):
         # Horní lišta
         top_bar = BoxLayout(size_hint_y=0.1, padding=5)
         
-        left_button = Button(text=".", size_hint_x=0.2)
+        left_button = Button(text="Levý tlačítko", size_hint_x=0.2)
         center_label = Label(text="PNEUMATIKY", size_hint_x=0.6, color=(1,1,1,1), font_size='20sp') # Bílý text
-        right_button = Button(text=".", size_hint_x=0.2)
+        right_button = Button(text="Pravý tlačítko", size_hint_x=0.2)
         
         top_bar.add_widget(left_button)
         top_bar.add_widget(center_label)
@@ -37,17 +36,17 @@ class MainApp(App):
         # Dolní část s čtyřmi tlačítky
         if platform == 'android':
             # Rozložení pro Android: 2 tlačítka vedle sebe a další 2 pod nimi
-            bottom_buttons = BoxLayout(size_hint_y=0.2, orientation='vertical', spacing=10, padding=10)
+            bottom_buttons = BoxLayout(size_hint_y=0.3, orientation='vertical', spacing=10, padding=10)  # Změněno na 0.3
             
-            top_row = BoxLayout()
-            button1 = Button(text="1")
-            button2 = Button(text="2")
+            top_row = BoxLayout(size_hint_y=0.5)
+            button1 = Button(text="Tlačítko 1")
+            button2 = Button(text="Tlačítko 2")
             top_row.add_widget(button1)
             top_row.add_widget(button2)
             
-            bottom_row = BoxLayout()
-            button3 = Button(text="3")
-            button4 = Button(text="4")
+            bottom_row = BoxLayout(size_hint_y=0.5)
+            button3 = Button(text="Tlačítko 3")
+            button4 = Button(text="Tlačítko 4")
             bottom_row.add_widget(button3)
             bottom_row.add_widget(button4)
             
