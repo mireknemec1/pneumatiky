@@ -6,6 +6,7 @@ from kivy.core.window import Window
 from kivy.graphics import Rectangle
 from kivy.utils import platform
 
+# Test 
 # Nastavení oranžové barvy pozadí pro celé okno
 Window.clearcolor = (1, 0.5, 0, 1)
 
